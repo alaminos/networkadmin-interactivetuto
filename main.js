@@ -21,7 +21,15 @@ const data = {
 
   Datagrammes: ["Data", "Data", "Data", "Segment", "Packet", "Frame", "Bits"],
 
-  Description: []
+  Description: [
+    "blabla",
+    "blabla",
+    "blabla",
+    "blabla",
+    "blabla",
+    "blabla",
+    "blabla"
+  ]
 };
 
 (function() {
@@ -33,6 +41,7 @@ const data = {
     let tbCells = Array.from(tbRows[i].children);
     for (let j = 0; j < tbCells.length; j++) {
       tbCells[j].setAttribute("data-col-n", j);
+      console.log("This cell belong to the layer : " + data.layers[i - 1]);
       //console.log(tbCells[j]);
       if (j === 0) {
         tbCells[j].innerHTML = layer;
