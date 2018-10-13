@@ -23,3 +23,21 @@ const data = {
 
   Description: []
 };
+
+(function() {
+  let tbRows = Array.from(document.querySelector("tbody").children);
+  let layer = 7;
+  for (let i = 1; i < tbRows.length; i++) {
+    tbRows[i].setAttribute("data-layer-n", layer);
+    console.log(tbRows[i]);
+    let tbCells = Array.from(tbRows[i].children);
+    for (let j = 0; j < tbCells.length; j++) {
+      tbCells[j].setAttribute("data-col-n", j);
+      //console.log(tbCells[j]);
+      if (j === 0) {
+        tbCells[j].innerHTML = layer;
+      }
+    }
+    layer--;
+  }
+})();
