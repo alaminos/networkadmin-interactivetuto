@@ -9,7 +9,7 @@ const data = {
     "physical"
   ],
 
-  Protocoles: [
+  protocols: [
     "HTTP, FTP, POP3...",
     "ASCII, MPEG, SSL...",
     "NetBIOS, Handshaking connection...",
@@ -19,9 +19,9 @@ const data = {
     "Cables, Hubs..."
   ],
 
-  Datagrammes: ["Data", "Data", "Data", "Segment", "Packet", "Frame", "Bits"],
+  datagrammes: ["Data", "Data", "Data", "Segment", "Packet", "Frame", "Bits"],
 
-  Description: [
+  description: [
     "blabla",
     "blabla",
     "blabla",
@@ -32,20 +32,34 @@ const data = {
   ]
 };
 
+const columns = new Map([
+  //[0, numbers],
+  [1, data.layers],
+  [2, data.protocols],
+  [3, data.datagrammes],
+  [4, data.description]
+]);
+
 (function() {
   let tbRows = Array.from(document.querySelector("tbody").children);
   let layer = 7;
+
   for (let i = 1; i < tbRows.length; i++) {
+    //--------------------------------------------------ROWS (LAYERS)
     tbRows[i].setAttribute("data-layer-n", layer);
     console.log(tbRows[i]);
     let tbCells = Array.from(tbRows[i].children);
     for (let j = 0; j < tbCells.length; j++) {
+      //----------------------------------------------C (DATA TYPE)
       tbCells[j].setAttribute("data-col-n", j);
-      console.log("This cell belong to the layer : " + data.layers[i - 1]);
-      //console.log(tbCells[j]);
       if (j === 0) {
-        tbCells[j].innerHTML = layer;
+        tbCells[j].innerHTML = layer; //populate cells of first col w/ number of layer
+      } else if (j !== 0) {
+        let colName = columns.get(j);
+        tbCells[j].innerHTML = colName[i - 1];
       }
+      //data.layers works
+      //b
     }
     layer--;
   }
