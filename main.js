@@ -40,7 +40,7 @@ const columns = new Map([
   [4, data.description]
 ]);
 
-(function() {
+const populateTable = function() {
   let tbRows = Array.from(document.querySelector("tbody").children);
   let layer = 7;
 
@@ -50,7 +50,7 @@ const columns = new Map([
     console.log(tbRows[i]);
     let tbCells = Array.from(tbRows[i].children);
     for (let j = 0; j < tbCells.length; j++) {
-      //----------------------------------------------C (DATA TYPE)
+      //----------------------------------------------COLS (DATA TYPE)
       tbCells[j].setAttribute("data-col-n", j);
       if (j === 0) {
         tbCells[j].innerHTML = layer; //populate cells of first col w/ number of layer
@@ -63,4 +63,4 @@ const columns = new Map([
     }
     layer--;
   }
-})();
+};
