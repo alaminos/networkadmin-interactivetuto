@@ -1,44 +1,48 @@
-const data = {
-  layers: [
-    "application",
-    "presentation",
-    "session",
-    "transport",
-    "network",
-    "data link",
-    "physical"
-  ],
+const data = [
+  {
+    name: "layers",
+    content: [
+      "application",
+      "presentation",
+      "session",
+      "transport",
+      "network",
+      "data link",
+      "physical"
+    ]
+  },
 
-  protocols: [
-    "HTTP, FTP, POP3...",
-    "ASCII, MPEG, SSL...",
-    "NetBIOS, Handshaking connection...",
-    "TCP, UDP",
-    "IPv4, ARP...",
-    "Ethernet, MAC Addresses,...",
-    "Cables, Hubs..."
-  ],
+  {
+    name: "protocols",
+    content: [
+      "HTTP, FTP, POP3...",
+      "ASCII, MPEG, SSL...",
+      "NetBIOS, Handshaking connection...",
+      "TCP, UDP",
+      "IPv4, ARP...",
+      "Ethernet, MAC Addresses,...",
+      "Cables, Hubs..."
+    ]
+  },
 
-  datagrammes: ["Data", "Data", "Data", "Segment", "Packet", "Frame", "Bits"],
+  {
+    name: "datagrammes",
+    content: ["Data", "Data", "Data", "Segment", "Packet", "Frame", "Bits"]
+  },
 
-  description: [
-    "blabla",
-    "blabla",
-    "blabla",
-    "blabla",
-    "blabla",
-    "blabla",
-    "blabla"
-  ]
-};
-
-const columns = new Map([
-  //[0, numbers],
-  [1, data.layers],
-  [2, data.protocols],
-  [3, data.datagrammes],
-  [4, data.description]
-]);
+  {
+    name: "description",
+    content: [
+      "blabla",
+      "blabla",
+      "blabla",
+      "blabla",
+      "blabla",
+      "blabla",
+      "blabla"
+    ]
+  }
+];
 
 const populateTable = function() {
   let tbRows = Array.from(document.querySelector("tbody").children);
@@ -54,13 +58,16 @@ const populateTable = function() {
       tbCells[j].setAttribute("data-col-n", j);
       if (j === 0) {
         tbCells[j].innerHTML = layer; //populate cells of first col w/ number of layer
-      } else if (j !== 0) {
-        let colName = columns.get(j);
-        tbCells[j].innerHTML = colName[i - 1];
+      } else {
+        tbCells[j].innerHTML = data[j - 1].content[i - 1];
       }
-      //data.layers works
-      //b
     }
     layer--;
   }
+};
+
+const startTestMode = function() {
+  //clean (or hide?) table content
+  //clean table content except one random cel in every col, different rows
+  //text input
 };
