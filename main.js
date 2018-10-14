@@ -50,12 +50,12 @@ const populateTable = function() {
 
   for (let i = 1; i < tbRows.length; i++) {
     //--------------------------------------------------ROWS (LAYERS)
-    tbRows[i].setAttribute("data-layer-n", layer);
+    tbRows[i].setAttribute("data-layer", layer);
     console.log(tbRows[i]);
     let tbCells = Array.from(tbRows[i].children);
     for (let j = 0; j < tbCells.length; j++) {
       //----------------------------------------------COLS (DATA TYPE)
-      tbCells[j].setAttribute("data-col-n", j);
+      tbCells[j].setAttribute("data-col", j);
       if (j === 0) {
         tbCells[j].innerHTML = layer; //populate cells of first col w/ number of layer
       } else {
@@ -71,3 +71,12 @@ const startTestMode = function() {
   //clean table content except one random cel in every col, different rows
   //text input
 };
+
+(function() {
+  document.querySelector("tbody").addEventListener("click", function(event) {
+    let clickedElement = event.target;
+    let layerNum = clickedElement.parentNode.dataset.layer;
+    let colNum = clickedElement.dataset.col;
+    console.log(`layer is ${layerNum} and column is ${colNum}`);
+  });
+})();
