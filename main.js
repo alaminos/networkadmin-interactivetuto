@@ -57,8 +57,10 @@ const populateTable = function() {
       //----------------------------------------------COLS (DATA TYPE)
       tbCells[j].setAttribute("data-col", j);
       if (j === 0) {
-        tbCells[j].innerHTML = layer; //populate cells of first col w/ number of layer
+        //first col
+        tbCells[j].innerHTML = layer; //populate w/ number of layer
       } else {
+        //other cols
         tbCells[j].innerHTML = data[j - 1].content[i - 1];
       }
     }
@@ -68,6 +70,18 @@ const populateTable = function() {
 
 const startTestMode = function() {
   //clean (or hide?) table content
+  let tbRows = Array.from(document.querySelector("tbody").children);
+  for (let i = 1; i < tbRows.length; i++) {
+    let tbCells = Array.from(tbRows[i].children);
+    for (let j = 0; j < tbCells.length; j++) {
+      if (j != 0) {
+        let input = document.createElement("input");
+        input.setAttribute("type", "text");
+        tbCells[j].innerHTML = "";
+        tbCells[j].appendChild(input);
+      }
+    }
+  }
   //clean table content except one random cel in every col, different rows
   //text input
 };
