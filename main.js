@@ -16,12 +16,12 @@ const data = [
     name: "protocols",
     content: [
       "HTTP, FTP, POP3...",
-      "ASCII, MPEG, SSL...",
+      "ASCII, XML, SSL...",
       "NetBIOS, Handshaking connection...",
       "TCP, UDP",
       "IPv4, ARP...",
       "Ethernet, MAC Addresses,...",
-      "Cables, Hubs..."
+      "Cables, Hubs, bluetooth,..."
     ]
   },
 
@@ -37,8 +37,8 @@ const data = [
       "blabla",
       "blabla",
       "blabla",
-      "blabla",
-      "blabla",
+      "IP layer, router,...",
+      "MAC addresses. Bit are packed into frames",
       "blabla"
     ]
   }
@@ -85,6 +85,7 @@ const startTestMode = function() {
   //clean table content except one random cel in every col, different rows
   //text input
 };
+
 
 (function() {
   document.querySelector("tbody").addEventListener("click", function(event) {
