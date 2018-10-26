@@ -16,12 +16,12 @@ const data = [
     name: "protocols",
     content: [
       "HTTP, FTP, POP3...",
-      "ASCII, XML, SSL...",
+      "JPG, ASCII, XML, SSL...",
       "NetBIOS, Handshaking connection...",
       "TCP, UDP",
       "IPv4, ARP...",
       "Ethernet, MAC Addresses,...",
-      "Cables, Hubs, bluetooth,..."
+      "Cables, bluetooth,..."
     ]
   },
 
@@ -33,13 +33,13 @@ const data = [
   {
     name: "description",
     content: [
-      "blabla",
-      "blabla",
-      "blabla",
-      "blabla",
-      "IP layer, router,...",
-      "MAC addresses. Bit are packed into frames",
-      "blabla"
+      "End user layer",
+      "Data representation and ecryption",
+      "Main functions of this layers includes translation, encryption and compression of data.",
+      "Decides how much info should be sent at a time",
+      "IP addresses are here. Routers operate on this layer. Chop data in smaller chunks known as packets.",
+      "MAC addresses are here. Bits are packed into frames. Switches operate on this layer.",
+      "Hubs are here."
     ]
   }
 ];
